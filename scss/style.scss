@@ -1,9 +1,23 @@
 @import "_header";
 
 body {
-	font-size: 20px;
-
+	font-size: 30px;
+	font-style: 10px;
 	div {
-		font-size: 10px;
+		font-size: 25px;
+	}
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+
+@media (max-width: 750px) {
+	.red {
+		border: 0;
 	}
 }
