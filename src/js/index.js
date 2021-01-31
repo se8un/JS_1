@@ -470,7 +470,7 @@ const delayedHello = () => {
 setTimeout(delayedHello, 2000) */
 
 // setTimeout()для создания асинхронных обещаний:
-const returnPromiseFunction = () => {
+/* const returnPromiseFunction = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('I resolved!')
@@ -478,3 +478,262 @@ const returnPromiseFunction = () => {
   })
 }
 const prom = returnPromiseFunction()
+
+//
+const usingSTO = () => {
+  console.log('Это первая строка Асинхронного кода')
+}
+setTimeout(usingSTO, 2000)
+ */
+
+// var context = canvas.getContext("2d");
+// context.fillRect(150, 50, 50, 50);
+
+//
+/* String.prototype.toJadenCase = function () {
+  console.log("How can mirrors be real if our eyes aren't real")
+}
+
+str.toJadenCase()
+
+let text = ["How can mirrors be real if our eyes aren't real"]
+text.reduce(() => {
+	text
+}) */
+
+// // счетчик нажатия на кнопку
+// document.querySelector('.button-1').onclick = () => console.log('-нажал-')
+
+// не работает старый код??
+// console.setColor('rgb(200, 170, 0)')
+
+//CONSOLE EXAMPLE
+// console.setColor('#fff')
+// console.log('A colourful multiplication table:')
+// // console.log()
+
+// function printLine(n) {
+//   var text = ''
+//   for (var i = 1; i <= 8; i++) {
+//     text += i * n + '\t'
+//   }
+//   console.log(text)
+// }
+
+// for (var i = 1; i <= 20; i++) {
+//   console.log(i)
+//   printLine(i)
+// }
+
+// // console.setColor('#ed7032')
+// console.log()
+// console.log(':-D')
+
+// // замыкание
+// const add = (x) => (y) => {
+//   const z = x + y
+//   console.log(x + '+' + y + '=' + z)
+//   return add(z)
+// }
+
+// const res = add(1)(4)(6)(9)
+
+// console.log(res)
+/* 
+function hello() {
+  console.log('hello', this)
+}
+
+const person = {
+  name: 'Vlad',
+  age: 25,
+  sayHello: hello,
+}
+ */
+
+// class Samurai {
+//   constructor(name) {
+//     this.name = name
+//   }
+//   hello() {
+//     alert(this.name)
+//   }
+// }
+
+// let shogun = new Samurai('se8un')
+// console.log(shogun.__proto__ !== Function.prototype)
+// console.log(shogun.__proto__ === Samurai.prototype)
+// console.log(shogun.__proto__.__proto__ === Samurai.prototype.__proto__)
+// console.log(
+//   shogun.__proto__.constructor.__proto__ ===
+//     Samurai.prototype.constructor.__proto__
+// )
+// console.log(shogun)
+// console.log(shogun.__proto__)
+// console.log(shogun.__proto__.constructor)
+
+// console.log(shogun.__proto__.__proto__.__proto__)
+// console.log(shogun.__proto__.__proto__)
+// console.log(shogun.__proto__)
+// console.log(shogun)
+
+// console.log(Samurai.prototype !== Object.prototype)
+// console.log(Samurai.prototype !== Function.prototype)
+
+// console.log('------------------------------------')
+
+/* class Square {
+  constructor(size) {
+    this.size = size
+  }
+  set size(value) {
+    // сеттер, срабатывает при записи
+    this._size = value // Приватное поле
+  }
+  get area() {
+    // геттер, срабатывает при чтении
+    return this._size ** 2
+  }
+}
+const box = new Square(3)
+console.log(box.area) // 9
+
+box.size = 5
+console.log(box.size) */
+
+/* const fruits = ['apple', 'banana', 'orange']
+fruits.splice(1, 1, 'pussy')
+
+console.log(fruits)
+ */
+
+// const arrStr = ['lorem', 'ipsum', 'dolor', 'sit', 'amet'].sort()
+// console.log(arrStr)
+
+// const arrNum = [21, 2020, 42, 1918, 7].sort((a, b) => a - b)
+// console.log(arrNum)
+
+/* 
+const person = {
+  name: 'Masha',
+  age: 19,
+  like: 'Rap, Classics',
+}
+for (atr in person) {
+  // console.log(x === 'age' ? `${x}:  ${person[x]}` : `${x}: ${person[x]}`)
+  // console.log(x.length == 3 ? `${x}:  ${person[x]}` : `${x}: ${person[x]}`)
+  console.log(`${atr}: ${person[atr]}`)
+}
+// output
+// name: Masha
+// age: 19
+// like: Rap, Classics
+ */
+
+/* 
+// цикл for in с массивами выводит индексы
+// цикл for of выводит имена
+const fruits = ['apple', 'banana', 'orange']
+for (const fru in fruits) {
+  console.log(fru)
+}
+ */
+
+/* 
+// С другой стороны, у массивов есть метод .forEach(), который заменяет работу с циклом (кстати, он более производителен):
+const fruits = ['apple', 'banana', 'orange']
+fruits.forEach((fru) => console.log(fru))
+ */
+
+/* 
+// [...arguments]
+// У любой функции есть доступ к специальной переменной arguments, которая представляет фактически переданные параметры: arguments – объект, похожий на массив. Он итерируем, имеет числовые индексы, но, к сожалению, не работает с .forEach(). Чтобы обернуть его в массив, можно использовать оператор ....
+function sortFn() {
+  const x = [...arguments].sort((a, b) => a - b)
+  console.log(`sort -> ${x}`)
+  return x
+}
+sortFn(16, 3, 5, 8, 13, 6, -12, 38, 55, 46, 789, 12, 4545, 12, 884, -5, -1, -1)
+ */
+
+/* 
+let strSort = ['Маша', 'Петя', 'Яна', 'Саша', 'Марина', 'Алексей']
+// console.log(strSort)
+for (name of strSort.sort()) {
+  console.log(`Имя: ${name}`)
+}
+ */
+
+/* 
+function sumFn() {
+  const x = [...arguments].reduce((prev, curr) => prev + curr)
+  console.log(`sum -> ${x}`)
+  return x
+}
+sumFn(16, 3, 5, 8, 13, 6, 24, 6, 5151, 55)
+ */
+
+/* 
+function multFn() {
+  const x = [...arguments].reduce((prev, curr) => prev * curr)
+  console.log(`sum -> ${x}`)
+  return x
+}
+const moeChislo = multFn(16, 3, 5, 8, 13, 6, 47)
+console.log(moeChislo) */
+
+/* 
+// Способ проверки браузера на поддержку стандартов W3C DOM перед тем, как запустить код, зависящий от результата этой проверки.
+if (document.getElementById && document.getElementsByTagName) {
+  // если методы getElementById и getElementsByTagName
+  // доступны, то можно относительно точно предположить поддержку W3CDOM.
+
+  obj = document.getElementById('navigation')
+  // далее идёт другой код с использованием возможностей W3CDOM.
+  // ….
+}
+
+// Проверить заявленную поддержку различных расширений DOM в конкретном веб-браузере.
+function domImplementationTest() {
+  var featureArray = [
+    'HTML',
+    'XML',
+    'Core',
+    'Views',
+    'StyleSheets',
+    'CSS',
+    'CSS2',
+    'Events',
+    'UIEvents',
+    'MouseEvents',
+    'HTMLEvents',
+    'MutationEvents',
+    'Range',
+    'Traversal',
+  ]
+  var versionArray = ['1.0', '2.0', '3.0']
+  var i
+  var j
+  if (document.implementation && document.implementation.hasFeature) {
+    for (i = 0; i < featureArray.length; i++) {
+      for (j = 0; j < versionArray.length; j++) {
+        document.write(
+          'Поддержка расширения ' +
+            featureArray[i] +
+            ' версии ' +
+            versionArray[j] +
+            ': ' +
+            (document.implementation.hasFeature(
+              featureArray[i],
+              versionArray[j]
+            )
+              ? '<span style="color:green">true</span>'
+              : '<span style="color:red">false</span>') +
+            '<br/>'
+        )
+      }
+      document.write('<br/>')
+    }
+  }
+}
+ */
