@@ -1,4 +1,4 @@
-// "use strict";
+'use strict'
 
 // document.write('<h1>в JS document.write с тегами h1</h1>');
 // alert("Javacript подключен");
@@ -489,7 +489,7 @@ setTimeout(usingSTO, 2000)
 // var context = canvas.getContext("2d");
 // context.fillRect(150, 50, 50, 50);
 
-//
+// codewars-1
 /* String.prototype.toJadenCase = function () {
   console.log("How can mirrors be real if our eyes aren't real")
 }
@@ -551,36 +551,36 @@ const person = {
 }
  */
 
-// class Samurai {
-//   constructor(name) {
-//     this.name = name
-//   }
-//   hello() {
-//     alert(this.name)
-//   }
-// }
+/* 
+class Samurai {
+  constructor(name) {
+    this.name = name
+  }
+  hello() {
+    alert(this.name)
+  }
+}
 
-// let shogun = new Samurai('se8un')
-// console.log(shogun.__proto__ !== Function.prototype)
-// console.log(shogun.__proto__ === Samurai.prototype)
-// console.log(shogun.__proto__.__proto__ === Samurai.prototype.__proto__)
-// console.log(
-//   shogun.__proto__.constructor.__proto__ ===
-//     Samurai.prototype.constructor.__proto__
-// )
-// console.log(shogun)
-// console.log(shogun.__proto__)
-// console.log(shogun.__proto__.constructor)
+let shogun = new Samurai('se8un')
+console.log(shogun.__proto__ !== Function.prototype)
+console.log(shogun.__proto__ === Samurai.prototype)
+console.log(shogun.__proto__.__proto__ === Samurai.prototype.__proto__)
+console.log(
+  shogun.__proto__.constructor.__proto__ ===
+    Samurai.prototype.constructor.__proto__
+)
+console.log(shogun)
+console.log(shogun.__proto__)
+console.log(shogun.__proto__.constructor)
 
-// console.log(shogun.__proto__.__proto__.__proto__)
-// console.log(shogun.__proto__.__proto__)
-// console.log(shogun.__proto__)
-// console.log(shogun)
+console.log(shogun.__proto__.__proto__.__proto__)
+console.log(shogun.__proto__.__proto__)
+console.log(shogun.__proto__)
+console.log(shogun)
 
-// console.log(Samurai.prototype !== Object.prototype)
-// console.log(Samurai.prototype !== Function.prototype)
-
-// console.log('------------------------------------')
+console.log(Samurai.prototype !== Object.prototype)
+console.log(Samurai.prototype !== Function.prototype)
+ */
 
 /* class Square {
   constructor(size) {
@@ -737,3 +737,89 @@ function domImplementationTest() {
   }
 }
  */
+
+/* 
+// Наследование в класс-ориентированном синтаксисе выглядит так:
+class Animals {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+  sing() {
+    return `${this.name} can sing`
+  }
+  dance() {
+    return `${this.name} can dance`
+  }
+}
+class Cats extends Animals {
+  constructor(name, age, whiskerColor) {
+    super(name, age)
+    this.whiskerColor = whiskerColor
+  }
+  whiskers() {
+    return `I have ${this.whiskerColor} whiskers`
+  }
+}
+let clara = new Cats('Clara', 33, 'indigo')
+// Объект класса Cats clara может использовать свойства и методы как класса Cats, так и класса Animals.
+console.log(clara.sing()) // "Clara can sing"
+console.log(clara.whiskers()) // "I have indigo whiskers"
+
+// Перепишем этот код в прототипном стиле с использованием метода Object.create()
+function Animals(name, age) {
+  let newAnimal = Object.create(animalConstructor)
+  newAnimal.name = name
+  newAnimal.age = age
+  return newAnimal
+}
+let animalConstructor = {
+  sing: function () {
+    return `${this.name} can sing`
+  },
+  dance: function () {
+    return `${this.name} can dance`
+  },
+}
+function Cats(name, age, whiskerColor) {
+  let newCat = Animals(name, age)
+  Object.setPrototypeOf(newCat, catConstructor)
+  newCat.whiskerColor = whiskerColor
+  return newCat
+}
+let catConstructor = {
+  whiskers() {
+    return `I have ${this.whiskerColor} whiskers`
+  },
+}
+Object.setPrototypeOf(catConstructor, animalConstructor)
+const clara = Cats('Clara', 33, 'purple')
+clara.sing() // "Clara can sing"
+clara.whiskers() // "I have purple whiskers"
+ */
+
+/* 
+// // Чтобы рассчитать количество операций бинарным поиском, мы можем взять логарифм:
+// console.log(Math.log2(4000000000))
+ */
+
+/* 
+function addButtons(numButtons) {
+  for (var i = 0; i < numButtons; i++) {
+    var button = document.createElement('input')
+    button.type = 'button'
+    button.value = 'Button ' + (i + 1)
+    // Используем шаблон Immediately-Invoked Function Expression (IIFE) для достижения желаемого поведения:
+    button.onclick = ((buttonIndex) => {
+      return () => alert('Button ' + (buttonIndex + 1) + ' clicked') // c return () => алерт не вызываеться сразу при загрузке
+    })(i) // вызываем функцию с параметром i
+    document.body.appendChild(button)
+    document.body.appendChild(document.createElement('br'))
+  }
+}
+
+window.onload = () => addButtons(5)
+ */
+
+// js doc создать описание метода
+/** */
