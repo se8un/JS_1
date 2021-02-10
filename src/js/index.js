@@ -810,7 +810,7 @@ function addButtons(numButtons) {
     button.type = 'button'
     button.value = 'Button ' + (i + 1)
     // Используем шаблон Immediately-Invoked Function Expression (IIFE) для достижения желаемого поведения:
-    button.onclick = ((buttonIndex) => {
+    button.onclick = (buttonIndex => {
       return () => alert('Button ' + (buttonIndex + 1) + ' clicked') // c return () => алерт не вызываеться сразу при загрузке
     })(i) // вызываем функцию с параметром i
     document.body.appendChild(button)
@@ -823,3 +823,151 @@ window.onload = () => addButtons(5)
 
 // js doc создать описание метода
 /** */
+
+// Что нового в JavaScript 2020?
+/* 
+// старый метод for of await. Ждет когда все промисы зарезолвяться и вывод их разом.
+const emulate = (id, ms) =>
+  new Promise(resolve => {
+    setTimeout(() => resolve(id), ms)
+  })
+
+const promises = [emulate(1, 250), emulate(2, 500), emulate(3, 1500)]
+
+async function old() {
+  for (const promise of await Promise.all(promises)) {
+    console.log('old:', promise)
+  }
+}
+
+// новый синтаксис for await. Мы не ждем когда все промисы зарезолвяться а выводим их по мере готовности. При указании for of выводит статус pending всех промисов.
+async function modern() {
+  for await (const promise of promises) {
+    console.log('moderm:', promise)
+  }
+}
+
+modern()
+// old()
+ */
+
+// Объекты 2020
+// Object.getOwnPropertyDescriptor
+
+// const person = {
+//   name: 'Max',
+//   age: 30,
+// }
+
+// console.log(Object.getOwnPropertyDescriptor(person, 'name'))
+//
+// out:
+// { value: 30, writable: true, enumerable: true, configurable: true }
+
+// console.log(Object.getOwnPropertyDescriptors(person))
+//
+// out:
+//  {
+//   name: {
+//     value: 'Max',
+//     writable: true,
+//     enumerable: true,
+//     configurable: true
+//   },
+//   age: { value: 30, writable: true, enumerable: true, configurable: true }
+// }
+
+// // Object.entries возвращает массив, состоящий из массивов, где каждый массив состоит из 2х эллементов, где 0 индекс название ключа а 1 индекс значение этого ключа.
+// console.log(Object.entries(person))
+// //
+// // out:
+// // [ [ 'name', 'Max' ], [ 'age', 30 ] ]
+
+// // обратное действие, передаем вложеный массив entries:
+// // [ [ 'name', 'Max' ], [ 'age', 30 ] ],
+// console.log(
+//   Object.fromEntries([
+//     ['name', 'Max'],
+//     ['age', 30],
+//   ])
+// // )
+// // на выходе получаем наш объект person
+// // out:
+// // { name: 'Max', age: 30 }
+
+// // перевод в entries и обратно в объект person
+// console.log(Object.fromEntries(Object.entries(person)))
+
+// console.log(Object.entries(['M', 'A', 'X']))
+// // out:
+// // [ [ '0', 'M' ], [ '1', 'A' ], [ '2', 'X' ] ]
+
+// // деструкторизируем массив на key и value
+// for (const [key, value] of Object.entries(person)) {
+//   console.log(key, value)
+// }
+// //
+// //out:
+// // name Max
+// // age 30
+
+// // вариант с преобразованием в формат JavaScript Object Notation (JSON)
+// for (const [key, value] of Object.entries(person)) {
+//   console.log(`${JSON.stringify(key)}: ${JSON.stringify(value)}`)
+// }
+// //
+// //out:
+// // "name": "Max"
+// // "age": 30
+
+// // позволяет доставать значения из объекта
+// console.log(Object.values(person))
+// // out:
+// // [ 'Max', 30 ]
+
+// // возвращает массив ключей из объекта
+// console.log(Object.keys(person))
+// // [ 'name', 'age' ]
+
+//СТРОКИ 2020
+
+// // метод trim
+// // trimStart, trimEnd убирает пробелы в строках
+// const start = '                   Hello '
+// const end = 'This is new JS             '
+
+// // вариант 1
+// console.log(start.trimStart() + end.trimEnd())
+// // вариант 2
+// console.log((start + end).trim())
+
+// // out:
+// // Hello This is new JS
+// // Hello This is new JS
+
+// // padStart(5) добавляет 6 символов перед указаной строкой, второй параметр отвечает за заполнение www. Если ничего не указать то будут пробелы.
+// console.log('vk'.padStart(6, 'www.'))
+// // out: www.vk
+
+// // добавляем в конец стоки
+// console.log('vk'.padEnd(6, '.com'))
+// // out: vk.com
+
+// // благодоря такому синтаксису мы можем валидировать строчки и их ихменять
+// function tag(strings, name, age) {
+//   const [s1, s2, s3] = strings
+//   const ageStr = age > 42 ? 'старшим' : 'младшим'
+//   return `${s1}${name}${s2}${ageStr}${s3}` //добавляем чтобы не было в выводе undefined
+// }
+
+// const person = {
+//   name: 'Max',
+//   age: 50,
+// }
+
+// const output = tag`Человек по имени ${person.name} являеться ${person.age} в семье!`
+
+// console.log(output)
+// // out:
+// // [ 'Человек по имени ', ' являеться ', ' в семье!' ]
+// // undefined  // потому что мы ничего не вернули в функции, нужно добавить return что то.
